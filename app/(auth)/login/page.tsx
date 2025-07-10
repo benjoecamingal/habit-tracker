@@ -33,7 +33,7 @@ export default function Login() {
   }
 
   async function handleLoginGoogle() {
-    const currentOrigin = "http://localhost:3000";
+    const currentOrigin = window.location.origin;
     await supabase.auth.signInWithOAuth({
       provider: "google",
       options: {
