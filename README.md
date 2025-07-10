@@ -1,36 +1,112 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Habit Tracker
+
+This is a simple habit tracker application built with Next.js and Supabase. It allows users to create, track, and manage their habits.
 
 ## Getting Started
 
-First, run the development server:
+To get started with the application, you need to have Node.js and npm installed on your machine. You also need to have a Supabase account.
+
+1.  Clone the repository:
+
+```bash
+git clone https://github.com/your-username/habit-tracker.git
+```
+
+2.  Install the dependencies:
+
+```bash
+npm install
+```
+
+3.  Create a `.env.local` file in the root of the project and add your Supabase credentials:
+
+```
+NEXT_PUBLIC_SUPABASE_URL=your-supabase-url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your-supabase-anon-key
+```
+
+4.  Run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Technologies Used
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+*   [Next.js](https://nextjs.org/)
+*   [Supabase](https://supabase.io/)
+*   [Material-UI](https://mui.com/)
+*   [Chart.js](https://www.chartjs.org/)
+*   [TypeScript](https://www.typescriptlang.org/)
 
-## Learn More
+## Features
 
-To learn more about Next.js, take a look at the following resources:
+*   User authentication with Supabase
+*   Create, read, update, and delete habits
+*   Track habit progress
+*   View habit statistics
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## File Structure
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```
+.next.config.ts
+├── middleware.ts
+├── next.config.ts
+├── package-lock.json
+├── package.json
+├── README.md
+├── tsconfig.json
+├── .git/
+├── .next/
+├── app/
+│   ├── global.css
+│   ├── layout.tsx
+│   ├── page.tsx
+│   ├── (auth)/
+│   │   ├── layout.tsx
+│   │   ├── callback/
+│   │   │   └── route.ts
+│   │   ├── confirm/
+│   │   │   └── route.ts
+│   │   ├── login/
+│   │   │   └── page.tsx
+│   │   └── register/
+│   │       └── page.tsx
+│   ├── (pages)/
+│   │   ├── layout.tsx
+│   │   └── dashboard/
+│   │       ├── drawerList.tsx
+│   │       ├── layout.tsx
+│   │       ├── logout.tsx
+│   │       ├── (request)/
+│   │       │   └── request.ts
+│   │       ├── archives/
+│   │       │   ├── listArchiveHabit.tsx
+│   │       │   ├── page.tsx
+│   │       │   └── (request)/
+│   │       │       └── request.ts
+│   │       ├── habits/
+│   │       │   ├── countDown.tsx
+│   │       │   ├── createHabit.tsx
+│   │       │   ├── listHabit.tsx
+│   │       │   ├── page.tsx
+│   │       │   ├── (request)/
+│   │       │   │   └── request.ts
+│   │       │   └── [habitId]/
+│   │       │       ├── habitInstance.tsx
+│   │       │       └── page.tsx
+│   │       ├── home/
+│   │       │   ├── page.tsx
+│   │       │   └── (request)/
+│   │       │       └── request.ts
+│   │       └── profile/
+│   │           └── page.tsx
+│   └── (supabase)/
+│       ├── client.ts
+│       ├── middleware.ts
+│       └── server.ts
+├── node_modules/
+└── public/
+```
